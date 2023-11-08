@@ -1,0 +1,12 @@
+#date{
+    animation: gradientAnimation 20s infinite;
+    background-image: linear-gradient(90deg, rgba(0, 27, 71, 0.527),rgb(38, 38, 38));
+    background-size: 300% 100%;
+
+}
+nav{
+    --bs-breadcrumb-divider: '|';
+}
+a{
+    text-decoration: none;
+}

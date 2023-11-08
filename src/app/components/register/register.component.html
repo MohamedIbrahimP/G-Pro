@@ -1,0 +1,150 @@
+<div class="container pt-3 border border-dark rounded">
+    
+<div class="col text-center faded">
+    <h2 class="fw-medium">{{ id == 0 ? "Register" : "Edit Employee" }}</h2>
+</div>
+
+    <form (submit)="submit($event)" class="form row p-4" [formGroup]="registerForm">
+
+<div class="col-6">
+
+      <div class="input-group my-3 mx-auto">
+        <span class="input-group-text">Full Name</span>
+        <input type="text" class="form-control" placeholder="First Name" formControlName="firstName" >
+        <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName" >
+      </div>
+<ng-container>
+  <div *ngIf="submitted&&getFirstName.errors" class=" text-center text-danger">
+   First Name is Required!
+    </div>
+    <div *ngIf="submitted&&getLastName.errors" class=" text-center text-danger">
+      Last Name is Required!
+      </div>
+</ng-container>
+
+      <div class="input-group my-3 mx-auto">
+        <span class="input-group-text">Address</span>
+        <input type="text" class="form-control" placeholder="Employee Address" formControlName="address" >
+      </div>
+      <ng-container>
+        <div *ngIf="submitted&&getAddress.errors" class=" text-center text-danger">
+         Address is Required!
+          </div>
+      </ng-container>
+
+      <div class="input-group my-3 mx-auto">
+        <span class="input-group-text">Phone</span>
+        <input type="tel" class="form-control" placeholder="Phone Number" formControlName="phone" formControlName="phone" >
+      </div>
+      <ng-container>
+        <div *ngIf="submitted&&getPhone.hasError('required')" class=" text-center text-danger">
+         Phone is Required!
+          </div>
+          <div *ngIf="getPhone.touched&&getPhone.hasError('pattern')" class=" text-center text-danger">
+            Phone Not Matched!
+             </div>
+      </ng-container>
+
+      <div class="input-group my-3 mx-auto">
+        <span class="input-group-text">Gender</span>
+        <select class="form-select" formControlName="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+      </div>
+      <ng-container>
+        <div *ngIf="submitted&&getGender.errors" class=" text-center text-danger">
+         Gender is Required!
+          </div>
+      </ng-container>
+
+      <div class="input-group my-3 mx-auto">
+        <span class="input-group-text">Nationality</span>
+        <input type="text" class="form-control" placeholder="Nationality" formControlName="nationality" >
+      </div>
+      <ng-container>
+        <div *ngIf="submitted&&getNationality.errors" class=" text-center text-danger">
+         Nationality is Required!
+          </div>
+      </ng-container>
+
+      <div class="input-group my-3 mx-auto">
+        <span class="input-group-text">Birth Date</span>
+        <input type="date" class="form-control" formControlName="birthDate" >
+      </div>
+      <ng-container>
+        <div *ngIf="submitted&&getBirthDate.hasError('required')" class=" text-center text-danger">
+         Birth Date is Required!
+          </div>
+          <div *ngIf="getBirthDate.touched&&getBirthDate.hasError('minAge')" class=" text-center text-danger">
+            Age Must be Older Than 18!
+             </div>
+      </ng-container>
+
+      <div class="input-group my-3 mx-auto">
+        <span class="input-group-text">National ID</span>
+        <input type="text" class="form-control" placeholder="National ID" formControlName="nationalId" >
+      </div>
+      <ng-container>
+        <div *ngIf="submitted&&getNationalId.hasError('required')" class=" text-center text-danger">
+         National Id is Required!
+          </div>
+             <div *ngIf="getNationalId.touched&&getNationalId.hasError('pattern')" class=" text-center text-danger">
+              National Id Must be (14) dig!
+               </div>
+      </ng-container>
+
+</div>
+
+<div class="col-6">
+
+  <div class="input-group my-3 mx-auto">
+    <span class="input-group-text">Contract Date</span>
+    <input type="date" class="form-control" formControlName="contractDate" >
+  </div>
+  <ng-container>
+    <div *ngIf="submitted&&getContractDate.hasError('required')" class=" text-center text-danger">
+     Contract Date is Required!
+      </div>
+      <div *ngIf="getContractDate.touched&&getContractDate.hasError('contractYear')" class=" text-center text-danger">
+        Contract Date Must be Above 2008!
+         </div>
+  </ng-container>
+
+  <div class="input-group my-3 mx-auto">
+    <span class="input-group-text">Salary</span>
+    <input type="number" class="form-control" placeholder="Salary" formControlName="salary" >
+  </div>
+  <ng-container>
+    <div *ngIf="submitted&&getSalary.errors" class=" text-center text-danger">
+     Salary is Required!
+      </div>
+  </ng-container>
+
+  <div class="input-group my-3 mx-auto">
+    <span class="input-group-text">Attendance Time</span>
+    <input type="time" class="form-control" formControlName="attendanceTime" >
+  </div>
+  <ng-container>
+    <div *ngIf="submitted&&getAttendanceTime.errors" class=" text-center text-danger">
+     Attendance Time is Required!
+      </div>
+  </ng-container>
+
+  <div class="input-group my-3 mx-auto">
+    <span class="input-group-text">Departure Time</span>
+    <input type="time" class="form-control" formControlName="departureTime" >
+  </div>
+  <ng-container>
+    <div *ngIf="submitted&&getDepartureTime.errors" class=" text-center text-danger">
+     Departure Time is Required!
+      </div>
+  </ng-container>
+
+</div>
+
+<button type="submit" class="form-control btn gbg rounded-5 mt-3 mx-auto ">{{ id == 0 ? "New Employee" : "Edit Employee" }}</button>
+
+    </form>
+   
+</div>

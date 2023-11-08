@@ -1,0 +1,158 @@
+<div class="container pt-3 border border-dark rounded">
+
+    <div class="text-center faded ">
+        <h2 class="fw-medium">Official Vacations</h2>
+    </div>
+
+    <form (submit)="submit($event)" class="form p-4" [formGroup]="officialVacationsForm">
+
+        <div class="row">
+
+            <div class="col-6">
+                <div class="input-group my-3 mx-auto">
+                    <span class="input-group-text">Name</span>
+                    <input type="text" class="form-control" placeholder="Name of Vacation" formControlName="name" >
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="input-group my-3 mx-auto">
+                    <span class="input-group-text">Date</span>
+                    <input type="date" class="form-control" formControlName="date" >
+                </div>
+            </div>
+
+        </div>
+        <ng-container>
+            <div *ngIf="submitted&&getName.hasError('required')" class=" text-center text-danger">
+              Name is Required!
+               </div>
+           </ng-container>
+<hr>
+
+
+<div class="row">
+
+
+    <table id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011-04-25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Colleen Hurst</td>
+                <td>Javascript Developer</td>
+                <td>San Francisco</td>
+                <td>39</td>
+                <td>2009-09-15</td>
+                <td>$205,500</td>
+            </tr>
+            <tr>
+                <td>Sonya Frost</td>
+                <td>Software Engineer</td>
+                <td>Edinburgh</td>
+                <td>23</td>
+                <td>2008-12-13</td>
+                <td>$103,600</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+
+
+
+
+
+
+</div>      
+
+
+
+
+
+
+<button type="submit" class="form-control btn gbg rounded-5 mt-3 mx-auto">Save</button>
+    </form>
+</div>
+
+<div class="row px-2">
+
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+      
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+              No.
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+              Name
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+              Weight
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+              Symbol
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>
+      
+
+
+
+
+
+</div>

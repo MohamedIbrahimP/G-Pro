@@ -1,0 +1,85 @@
+<div class="container pt-3 border border-dark rounded">
+
+    <div class="text-center faded ">
+        <h2 class="fw-medium">General Settings</h2>
+    </div>
+
+    <form (submit)="submit($event)" class="form p-4" [formGroup]="generalSettingsForm">
+
+        <div class="row">
+
+            <div class="col-6">
+                <div class="input-group my-3 mx-auto">
+                    <span class="input-group-text">Addition</span>
+                    <input type="number" class="form-control" placeholder="Addition" formControlName="addition" >
+                </div>
+                <ng-container>
+                    <div *ngIf="submitted&&getAddition.hasError('required')" class=" text-center text-danger">
+                      Addition is Required!
+                       </div>
+                   </ng-container>
+            </div>
+
+            <div class="col-6">
+                <div class="input-group my-3 mx-auto">
+                    <span class="input-group-text">Debit</span>
+                    <input type="number" class="form-control" placeholder="Debit" formControlName="debit" >
+                </div>
+                <ng-container>
+                    <div *ngIf="submitted&&getDebit.hasError('required')" class=" text-center text-danger">
+                      Debit is Required!
+                       </div>
+                   </ng-container>
+            </div>
+
+        </div>
+<hr>
+<div class="text-center faded ">
+    <h2 class="fw-medium">Weekends</h2>
+</div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="input-group my-3 mx-auto">
+                    <span class="input-group-text">First Day</span>
+                    <select class="form-select" formControlName="firstDay" >
+                        <option selected>select Day</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                    </select>
+                </div>
+                <ng-container>
+                    <div *ngIf="submitted&&getFirstDay.hasError('required')" class=" text-center text-danger">
+                      First Day is Required!
+                       </div>
+                   </ng-container>
+            </div>
+
+            <div class="col-6">
+                <div class="input-group my-3 mx-auto">
+                    <span class="input-group-text">Second Day</span>
+                    <select class="form-select" formControlName="secondDay" >
+                        <option selected>select Day</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+<button type="submit" class="form-control btn gbg rounded-5 mt-3 mx-auto"[ngClass]="{ 'disabled': generalSettingsForm.status === 'INVALID' }">Save</button>
+
+    </form>
+
+</div>
+
